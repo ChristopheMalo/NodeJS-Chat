@@ -1,5 +1,5 @@
 /**
- * Realtime Chat application
+ * Realtime tchat application
  * 
  * @author: Christophe Malo
  * @version: 0.1.0
@@ -8,13 +8,13 @@ var express = require('express'); // Loads Express.js framework
 
 // Loads the module
 var http    = require('http');
-var ent     = require('ent'); // For sécurity as PHP htmlentities
+var ent     = require('ent'); // For security as PHP htmlentities
 var fs      = require('fs');
 
-var application = express();
-var server      = http.createServer(application);
+var application = express(); // Create application
+var server      = http.createServer(application); // Create the server
 
-var socketio    = require('socket.io').listen(server);
+var socketio    = require('socket.io').listen(server); // Load module socket.io
 
 // Loads page index - Route with express
 application.get('/', function(request, response)
@@ -22,12 +22,12 @@ application.get('/', function(request, response)
     // Debug - simply test if server runs
     // response.setHeader('Content-Type', 'text/plain');
     // response.end('This home page');
-    response.sendfile(__dirname + '/index.html');
+    response.sendFile(__dirname + '/index.html');
 });
 
 socketio.sockets.on('connection', function(socket, nickname)
 {
-    /* Receives nickname of vis*itor,
+    /* Receives nickname of visitor,
        stores nickname in session variable, inform other users */
     socket.on('newClient', function(nickname)
     {
@@ -41,7 +41,7 @@ socketio.sockets.on('connection', function(socket, nickname)
     socket.on('message', function(message)
     {
         message = ent.encode(message);
-        socket.broadcast.emit('message', { nickename: socket.nickname, message: message });
+        socket.broadcast.emit('message', { nickname: socket.nickname, message: message });
     });
 });
 
