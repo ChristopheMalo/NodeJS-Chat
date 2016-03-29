@@ -16,6 +16,8 @@ var server      = http.createServer(application); // Create the server
 
 var socketio    = require('socket.io').listen(server); // Load module socket.io
 
+application.use(express.static('public')); // use public folder for CSS and JS
+
 // Loads page index - Route with express
 application.get('/', function(request, response)
 {
