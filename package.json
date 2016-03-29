@@ -1,0 +1,9 @@
+{
+    "name": "NodeJS-Chat",
+    "version": "0.1.0",
+    "dependencies": {
+        "socket.io": "~1.4.5"
+    },
+    "author": "Christophe Malo",
+    "description": "A simple Chat application that uses socket.io"
+}
