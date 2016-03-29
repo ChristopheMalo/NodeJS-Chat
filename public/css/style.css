@@ -1,0 +1,25 @@
+/**
+ * Real-time Tchat application CSS
+ *
+ * @author: Christophe Malo   
+ */
+/**
+/**
+ * -------------------------
+ * Generic
+ * -------------------------
+ */
+body {
+    padding-top: 10px;
+}
+
+/**
+ * -------------------------
+ * Structure
+ * -------------------------
+ */
+#tchat strong {
+    color: white;
+    background-color: black;
+    padding: 2px;
+}
